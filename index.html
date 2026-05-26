@@ -102,8 +102,14 @@
         .service-card .service-line{width:0;transition:width .4s ease}
         .service-card:hover .service-line{width:40px}
 
+        /* ── Client marquee ── */
+        .marquee-wrap{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+        .marquee-track{display:flex;gap:1.5rem;width:max-content;animation:marquee 35s linear infinite}
+        .marquee-track:hover{animation-play-state:paused}
+        @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
         /* ── Client cards ── */
-        .client-card{border:1px solid rgba(0,0,0,.04);transition:all .4s cubic-bezier(.4,0,.2,1)}
+        .client-card{border:1px solid rgba(0,0,0,.04);transition:all .4s cubic-bezier(.4,0,.2,1);flex-shrink:0;width:200px;height:200px}
         .client-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 25px 50px -12px rgba(0,0,0,.1);border-color:rgba(225,29,72,.15)}
         .client-card .client-logo{filter:grayscale(100%) opacity(.55);transition:filter .4s ease}
         .client-card:hover .client-logo{filter:grayscale(0%) opacity(1)}
@@ -369,79 +375,151 @@
                 <p class="text-dark-700/55 max-w-3xl mx-auto text-lg leading-relaxed">Our clients aren't just partners; they're the heartbeat of our success. We take pride in building lasting relationships and consistently exceeding expectations.</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5" data-stagger>
-                <!-- Mall of Qatar -->
-                <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)] aspect-square">
-                    <div class="client-logo mb-3">
-                        <svg viewBox="0 0 120 80" class="w-20 h-14">
-                            <rect x="8" y="22" width="7" height="38" rx="3.5" fill="#C41230"/>
-                            <rect x="19" y="12" width="7" height="48" rx="3.5" fill="#D4A017"/>
-                            <rect x="30" y="22" width="7" height="38" rx="3.5" fill="#2E7D32"/>
-                            <rect x="41" y="8" width="7" height="52" rx="3.5" fill="#7B1FA2"/>
-                            <rect x="52" y="16" width="7" height="44" rx="3.5" fill="#C41230"/>
-                            <rect x="63" y="12" width="7" height="48" rx="3.5" fill="#D4A017"/>
-                            <rect x="74" y="22" width="7" height="38" rx="3.5" fill="#2E7D32"/>
-                            <rect x="85" y="18" width="7" height="42" rx="3.5" fill="#C41230"/>
-                            <text x="50" y="74" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#64748b" font-weight="600" letter-spacing=".5">MALL OF QATAR</text>
-                        </svg>
+            <div class="marquee-wrap" data-anim="fade-up">
+                <div class="marquee-track">
+                    <!-- ── Set 1 ── -->
+                    <!-- Mall of Qatar -->
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-3">
+                            <svg viewBox="0 0 120 80" class="w-20 h-14">
+                                <rect x="8" y="22" width="7" height="38" rx="3.5" fill="#C41230"/>
+                                <rect x="19" y="12" width="7" height="48" rx="3.5" fill="#D4A017"/>
+                                <rect x="30" y="22" width="7" height="38" rx="3.5" fill="#2E7D32"/>
+                                <rect x="41" y="8" width="7" height="52" rx="3.5" fill="#7B1FA2"/>
+                                <rect x="52" y="16" width="7" height="44" rx="3.5" fill="#C41230"/>
+                                <rect x="63" y="12" width="7" height="48" rx="3.5" fill="#D4A017"/>
+                                <rect x="74" y="22" width="7" height="38" rx="3.5" fill="#2E7D32"/>
+                                <rect x="85" y="18" width="7" height="42" rx="3.5" fill="#C41230"/>
+                                <text x="50" y="74" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#64748b" font-weight="600" letter-spacing=".5">MALL OF QATAR</text>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <!-- AKP Ferrocast -->
-                <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)] aspect-square">
-                    <div class="client-logo">
-                        <svg viewBox="0 0 120 70" class="w-20 h-14">
-                            <text x="60" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#1e3a5f">AK</text>
-                            <text x="95" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#C41230">P</text>
-                            <line x1="15" y1="40" x2="105" y2="40" stroke="#C41230" stroke-width="2"/>
-                            <text x="60" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#1e3a5f" letter-spacing="3">FERRO</text>
-                            <text x="97" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#C41230" letter-spacing="3">CAST</text>
-                        </svg>
+                    <!-- AKP Ferrocast -->
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo">
+                            <svg viewBox="0 0 120 70" class="w-20 h-14">
+                                <text x="60" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#1e3a5f">AK</text>
+                                <text x="95" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#C41230">P</text>
+                                <line x1="15" y1="40" x2="105" y2="40" stroke="#C41230" stroke-width="2"/>
+                                <text x="60" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#1e3a5f" letter-spacing="3">FERRO</text>
+                                <text x="97" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#C41230" letter-spacing="3">CAST</text>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <!-- Mall of the Emirates -->
-                <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)] aspect-square">
-                    <div class="client-logo mb-2">
-                        <svg viewBox="0 0 100 70" class="w-16 h-12">
-                            <path d="M30 55L50 10l20 45" fill="none" stroke="#1e293b" stroke-width="3.5" stroke-linejoin="round"/>
-                            <path d="M50 10L35 45h30Z" fill="#C41230" opacity=".12"/>
-                            <path d="M38 55L50 22l12 33" fill="none" stroke="#C41230" stroke-width="2" stroke-linejoin="round"/>
-                            <circle cx="50" cy="36" r="4" fill="#C41230"/>
-                            <text x="50" y="66" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#334155" font-style="italic">Mall of the Emirates</text>
-                        </svg>
+                    <!-- Mall of the Emirates -->
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-2">
+                            <svg viewBox="0 0 100 70" class="w-16 h-12">
+                                <path d="M30 55L50 10l20 45" fill="none" stroke="#1e293b" stroke-width="3.5" stroke-linejoin="round"/>
+                                <path d="M50 10L35 45h30Z" fill="#C41230" opacity=".12"/>
+                                <path d="M38 55L50 22l12 33" fill="none" stroke="#C41230" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="50" cy="36" r="4" fill="#C41230"/>
+                                <text x="50" y="66" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#334155" font-style="italic">Mall of the Emirates</text>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <!-- Emirates -->
-                <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)] aspect-square">
-                    <div class="client-logo">
-                        <svg viewBox="0 0 120 60" class="w-20 h-12">
-                            <text x="60" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#C41230" font-style="italic" font-weight="700">Emirates</text>
-                            <path d="M18 40C35 37 85 37 102 40" stroke="#C41230" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <path d="M22 45C40 43 80 43 98 45" stroke="#C41230" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".4"/>
-                        </svg>
+                    <!-- Emirates -->
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo">
+                            <svg viewBox="0 0 120 60" class="w-20 h-12">
+                                <text x="60" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#C41230" font-style="italic" font-weight="700">Emirates</text>
+                                <path d="M18 40C35 37 85 37 102 40" stroke="#C41230" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                <path d="M22 45C40 43 80 43 98 45" stroke="#C41230" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".4"/>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <!-- Landmark -->
-                <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)] aspect-square">
-                    <div class="client-logo mb-2">
-                        <svg viewBox="0 0 100 70" class="w-16 h-12">
-                            <rect x="30" y="18" width="40" height="36" rx="2" fill="none" stroke="#92400e" stroke-width="2.5"/>
-                            <path d="M35 28L50 16l15 12" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linejoin="round"/>
-                            <rect x="44" y="36" width="12" height="18" rx="1" fill="#92400e"/>
-                            <rect x="36" y="24" width="6" height="6" rx="1" fill="none" stroke="#92400e" stroke-width="1.5"/>
-                            <rect x="58" y="24" width="6" height="6" rx="1" fill="none" stroke="#92400e" stroke-width="1.5"/>
-                            <text x="50" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.5" font-weight="700" fill="#78350f" letter-spacing="2.5">LANDMARK</text>
-                        </svg>
+                    <!-- Landmark -->
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-2">
+                            <svg viewBox="0 0 100 70" class="w-16 h-12">
+                                <rect x="30" y="18" width="40" height="36" rx="2" fill="none" stroke="#92400e" stroke-width="2.5"/>
+                                <path d="M35 28L50 16l15 12" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linejoin="round"/>
+                                <rect x="44" y="36" width="12" height="18" rx="1" fill="#92400e"/>
+                                <rect x="36" y="24" width="6" height="6" rx="1" fill="none" stroke="#92400e" stroke-width="1.5"/>
+                                <rect x="58" y="24" width="6" height="6" rx="1" fill="none" stroke="#92400e" stroke-width="1.5"/>
+                                <text x="50" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.5" font-weight="700" fill="#78350f" letter-spacing="2.5">LANDMARK</text>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <!-- PAI Caterers -->
-                <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)] aspect-square">
-                    <div class="client-logo mb-2">
-                        <svg viewBox="0 0 100 70" class="w-16 h-12">
-                            <circle cx="50" cy="28" r="18" fill="#fff1f2" stroke="#e11d48" stroke-width="1.5"/>
-                            <text x="50" y="34" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#e11d48" font-style="italic" font-weight="700">Pai</text>
-                            <text x="50" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#e11d48" letter-spacing="1.5">PAI CATERERS</text>
-                            <text x="50" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#94a3b8" letter-spacing="1">YOUR TRUSTED FOOD CATERER</text>
-                        </svg>
+                    <!-- PAI Caterers -->
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-2">
+                            <svg viewBox="0 0 100 70" class="w-16 h-12">
+                                <circle cx="50" cy="28" r="18" fill="#fff1f2" stroke="#e11d48" stroke-width="1.5"/>
+                                <text x="50" y="34" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#e11d48" font-style="italic" font-weight="700">Pai</text>
+                                <text x="50" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#e11d48" letter-spacing="1.5">PAI CATERERS</text>
+                                <text x="50" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#94a3b8" letter-spacing="1">YOUR TRUSTED FOOD CATERER</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- ── Set 2 (duplicate for seamless loop) ── -->
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-3">
+                            <svg viewBox="0 0 120 80" class="w-20 h-14">
+                                <rect x="8" y="22" width="7" height="38" rx="3.5" fill="#C41230"/>
+                                <rect x="19" y="12" width="7" height="48" rx="3.5" fill="#D4A017"/>
+                                <rect x="30" y="22" width="7" height="38" rx="3.5" fill="#2E7D32"/>
+                                <rect x="41" y="8" width="7" height="52" rx="3.5" fill="#7B1FA2"/>
+                                <rect x="52" y="16" width="7" height="44" rx="3.5" fill="#C41230"/>
+                                <rect x="63" y="12" width="7" height="48" rx="3.5" fill="#D4A017"/>
+                                <rect x="74" y="22" width="7" height="38" rx="3.5" fill="#2E7D32"/>
+                                <rect x="85" y="18" width="7" height="42" rx="3.5" fill="#C41230"/>
+                                <text x="50" y="74" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#64748b" font-weight="600" letter-spacing=".5">MALL OF QATAR</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo">
+                            <svg viewBox="0 0 120 70" class="w-20 h-14">
+                                <text x="60" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#1e3a5f">AK</text>
+                                <text x="95" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#C41230">P</text>
+                                <line x1="15" y1="40" x2="105" y2="40" stroke="#C41230" stroke-width="2"/>
+                                <text x="60" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#1e3a5f" letter-spacing="3">FERRO</text>
+                                <text x="97" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#C41230" letter-spacing="3">CAST</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-2">
+                            <svg viewBox="0 0 100 70" class="w-16 h-12">
+                                <path d="M30 55L50 10l20 45" fill="none" stroke="#1e293b" stroke-width="3.5" stroke-linejoin="round"/>
+                                <path d="M50 10L35 45h30Z" fill="#C41230" opacity=".12"/>
+                                <path d="M38 55L50 22l12 33" fill="none" stroke="#C41230" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="50" cy="36" r="4" fill="#C41230"/>
+                                <text x="50" y="66" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#334155" font-style="italic">Mall of the Emirates</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo">
+                            <svg viewBox="0 0 120 60" class="w-20 h-12">
+                                <text x="60" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#C41230" font-style="italic" font-weight="700">Emirates</text>
+                                <path d="M18 40C35 37 85 37 102 40" stroke="#C41230" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                <path d="M22 45C40 43 80 43 98 45" stroke="#C41230" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-2">
+                            <svg viewBox="0 0 100 70" class="w-16 h-12">
+                                <rect x="30" y="18" width="40" height="36" rx="2" fill="none" stroke="#92400e" stroke-width="2.5"/>
+                                <path d="M35 28L50 16l15 12" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linejoin="round"/>
+                                <rect x="44" y="36" width="12" height="18" rx="1" fill="#92400e"/>
+                                <rect x="36" y="24" width="6" height="6" rx="1" fill="none" stroke="#92400e" stroke-width="1.5"/>
+                                <rect x="58" y="24" width="6" height="6" rx="1" fill="none" stroke="#92400e" stroke-width="1.5"/>
+                                <text x="50" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.5" font-weight="700" fill="#78350f" letter-spacing="2.5">LANDMARK</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="client-card bg-white rounded-2xl p-6 flex flex-col items-center justify-center shadow-[0_2px_20px_rgba(0,0,0,.03)]">
+                        <div class="client-logo mb-2">
+                            <svg viewBox="0 0 100 70" class="w-16 h-12">
+                                <circle cx="50" cy="28" r="18" fill="#fff1f2" stroke="#e11d48" stroke-width="1.5"/>
+                                <text x="50" y="34" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#e11d48" font-style="italic" font-weight="700">Pai</text>
+                                <text x="50" y="56" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#e11d48" letter-spacing="1.5">PAI CATERERS</text>
+                                <text x="50" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#94a3b8" letter-spacing="1">YOUR TRUSTED FOOD CATERER</text>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
